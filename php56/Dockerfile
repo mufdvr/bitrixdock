@@ -11,6 +11,8 @@ RUN apt-get update \
     php5-gd \
     php5-imagick \
     php5-mcrypt \
+    libfreetype6 \
+    libfreetype6-dev \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 ADD ./php.ini /etc/php5/fpm/conf.d/90-php.ini
