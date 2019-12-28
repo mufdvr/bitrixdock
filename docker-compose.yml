@@ -12,8 +12,6 @@ services:
         container_name: php
         volumes_from:
             - source
-        ports:
-            - '${INTERFACE}:9000:9000'
         links:
             - mysql
             - memcached
@@ -32,7 +30,7 @@ services:
             - '${INTERFACE}:443:443'
         links:
             - php
-        networks: 
+        networks:
             - bitrix
         restart: always
     mysql:
@@ -40,8 +38,6 @@ services:
         container_name: mysql
         volumes_from:
             - source
-        ports:
-            - '${INTERFACE}:3306:3306'
         environment:
             MYSQL_DATABASE: ${MYSQL_DATABASE}
             MYSQL_USER: ${MYSQL_USER}
@@ -56,8 +52,6 @@ services:
         container_name: memcached
         volumes_from:
             - source
-        ports:
-            - '${INTERFACE}:11211:11211'
         networks:
             - bitrix
         restart: always
@@ -74,6 +68,7 @@ services:
             - ./www/html:/var/www/html
             - ${SITE_PATH}:/var/www/bitrix
             - /etc/localtime:/etc/localtime/:ro
+            - /var/www/html/.well-known:/var/www/html/.well-known
         networks:
             - bitrix
 networks:
