@@ -17,6 +17,7 @@ RUN apt-get update \
 
 ADD ./php.ini /etc/php5/fpm/conf.d/90-php.ini
 ADD ./php.ini /etc/php5/cli/conf.d/90-php.ini
+ADD ./php.ini /usr/local/php/etc/php.ini
 
 RUN usermod -u 1000 www-data
 
