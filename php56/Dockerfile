@@ -1,7 +1,7 @@
-FROM devilbox/php-fpm-5.3:latest
+FROM mufdvr/php-fpm-5.3:latest
 
 RUN apt-get update \
-    && apt-get -y install \
+    && apt-get -y --no-install-recommends install \
     php5-memcached \
     php5-memcache \
     php5-mysql \
@@ -11,8 +11,7 @@ RUN apt-get update \
     php5-gd \
     php5-imagick \
     php5-mcrypt \
-    libfreetype6 \
-    libfreetype6-dev
+    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 ADD ./php.ini /etc/php5/fpm/conf.d/90-php.ini
 ADD ./php.ini /etc/php5/cli/conf.d/90-php.ini
