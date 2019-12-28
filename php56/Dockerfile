@@ -1,7 +1,7 @@
 FROM devilbox/php-fpm-5.3:latest
 
 RUN apt-get update \
-    && apt-get -y --no-install-recommends install \
+    && apt-get -y install \
     php5-memcached \
     php5-memcache \
     php5-mysql \
