@@ -12,12 +12,11 @@ RUN apt-get update \
     php5-imagick \
     php5-mcrypt \
     libfreetype6 \
-    libfreetype6-dev \
-    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+    libfreetype6-dev
 
 ADD ./php.ini /etc/php5/fpm/conf.d/90-php.ini
 ADD ./php.ini /etc/php5/cli/conf.d/90-php.ini
-ADD ./php.ini /usr/local/php/etc/php.ini
+ADD ./php.ini /usr/local/php/php.ini
 
 RUN usermod -u 1000 www-data
 
