@@ -68,6 +68,7 @@ services:
             - ./www/html:/var/www/html
             - ${SITE_PATH}:/var/www/bitrix
             - /etc/localtime:/etc/localtime/:ro
+            - /etc/letsencrypt:/etc/letsencrypt
         networks:
             - bitrix
 networks:
